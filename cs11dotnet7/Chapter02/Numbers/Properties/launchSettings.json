@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "Numbers": {
+      "commandName": "Project"
+    },
+    "Profile 1": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\dtkach\\AppData\\Local\\Microsoft\\WindowsApps\\wt.exe",
+      "commandLineArgs": "dotnet.exe run --Project C:\\cs11dotnet7\\Chapter02\\Numbers\\Numbers.csproj",
+      "workingDirectory": "C:\\cs11dotnet7\\Chapter02\\Numbers"
+    }
+  }
+}

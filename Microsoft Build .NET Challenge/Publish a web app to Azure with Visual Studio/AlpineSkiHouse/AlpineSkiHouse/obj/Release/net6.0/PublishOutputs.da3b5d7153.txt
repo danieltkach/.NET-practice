@@ -1,0 +1,7 @@
+C:\Users\dtkach\Desktop\.NET\Publish a web app to Azure with Visual Studio\AlpineSkiHouse\AlpineSkiHouse\obj\Release\net6.0\PubTmp\Out\AlpineSkiHouse.exe
+C:\Users\dtkach\Desktop\.NET\Publish a web app to Azure with Visual Studio\AlpineSkiHouse\AlpineSkiHouse\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+C:\Users\dtkach\Desktop\.NET\Publish a web app to Azure with Visual Studio\AlpineSkiHouse\AlpineSkiHouse\obj\Release\net6.0\PubTmp\Out\appsettings.json
+C:\Users\dtkach\Desktop\.NET\Publish a web app to Azure with Visual Studio\AlpineSkiHouse\AlpineSkiHouse\obj\Release\net6.0\PubTmp\Out\AlpineSkiHouse.dll
+C:\Users\dtkach\Desktop\.NET\Publish a web app to Azure with Visual Studio\AlpineSkiHouse\AlpineSkiHouse\obj\Release\net6.0\PubTmp\Out\AlpineSkiHouse.deps.json
+C:\Users\dtkach\Desktop\.NET\Publish a web app to Azure with Visual Studio\AlpineSkiHouse\AlpineSkiHouse\obj\Release\net6.0\PubTmp\Out\AlpineSkiHouse.runtimeconfig.json
+C:\Users\dtkach\Desktop\.NET\Publish a web app to Azure with Visual Studio\AlpineSkiHouse\AlpineSkiHouse\obj\Release\net6.0\PubTmp\Out\AlpineSkiHouse.pdb

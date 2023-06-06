@@ -1,0 +1,15 @@
+C:\Users\dtkach\Desktop\.NET\Work with files and directories in a .NET app\Files and Directories\DirectoryHandling\bin\Debug\net6.0\DirectoryHandling.exe
+C:\Users\dtkach\Desktop\.NET\Work with files and directories in a .NET app\Files and Directories\DirectoryHandling\bin\Debug\net6.0\DirectoryHandling.deps.json
+C:\Users\dtkach\Desktop\.NET\Work with files and directories in a .NET app\Files and Directories\DirectoryHandling\bin\Debug\net6.0\DirectoryHandling.runtimeconfig.json
+C:\Users\dtkach\Desktop\.NET\Work with files and directories in a .NET app\Files and Directories\DirectoryHandling\bin\Debug\net6.0\DirectoryHandling.dll
+C:\Users\dtkach\Desktop\.NET\Work with files and directories in a .NET app\Files and Directories\DirectoryHandling\bin\Debug\net6.0\DirectoryHandling.pdb
+C:\Users\dtkach\Desktop\.NET\Work with files and directories in a .NET app\Files and Directories\DirectoryHandling\obj\Debug\net6.0\DirectoryHandling.csproj.AssemblyReference.cache
+C:\Users\dtkach\Desktop\.NET\Work with files and directories in a .NET app\Files and Directories\DirectoryHandling\obj\Debug\net6.0\DirectoryHandling.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dtkach\Desktop\.NET\Work with files and directories in a .NET app\Files and Directories\DirectoryHandling\obj\Debug\net6.0\DirectoryHandling.AssemblyInfoInputs.cache
+C:\Users\dtkach\Desktop\.NET\Work with files and directories in a .NET app\Files and Directories\DirectoryHandling\obj\Debug\net6.0\DirectoryHandling.AssemblyInfo.cs
+C:\Users\dtkach\Desktop\.NET\Work with files and directories in a .NET app\Files and Directories\DirectoryHandling\obj\Debug\net6.0\DirectoryHandling.csproj.CoreCompileInputs.cache
+C:\Users\dtkach\Desktop\.NET\Work with files and directories in a .NET app\Files and Directories\DirectoryHandling\obj\Debug\net6.0\DirectoryHandling.dll
+C:\Users\dtkach\Desktop\.NET\Work with files and directories in a .NET app\Files and Directories\DirectoryHandling\obj\Debug\net6.0\refint\DirectoryHandling.dll
+C:\Users\dtkach\Desktop\.NET\Work with files and directories in a .NET app\Files and Directories\DirectoryHandling\obj\Debug\net6.0\DirectoryHandling.pdb
+C:\Users\dtkach\Desktop\.NET\Work with files and directories in a .NET app\Files and Directories\DirectoryHandling\obj\Debug\net6.0\DirectoryHandling.genruntimeconfig.cache
+C:\Users\dtkach\Desktop\.NET\Work with files and directories in a .NET app\Files and Directories\DirectoryHandling\obj\Debug\net6.0\ref\DirectoryHandling.dll
