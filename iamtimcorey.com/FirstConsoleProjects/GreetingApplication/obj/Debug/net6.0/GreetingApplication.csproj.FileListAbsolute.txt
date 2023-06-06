@@ -13,3 +13,18 @@ C:\Users\dtkach\Desktop\.NET\iamtimcorey.com\FirstConsoleProjects\GreetingApplic
 C:\Users\dtkach\Desktop\.NET\iamtimcorey.com\FirstConsoleProjects\GreetingApplication\obj\Debug\net6.0\GreetingApplication.pdb
 C:\Users\dtkach\Desktop\.NET\iamtimcorey.com\FirstConsoleProjects\GreetingApplication\obj\Debug\net6.0\GreetingApplication.genruntimeconfig.cache
 C:\Users\dtkach\Desktop\.NET\iamtimcorey.com\FirstConsoleProjects\GreetingApplication\obj\Debug\net6.0\ref\GreetingApplication.dll
+C:\Users\dtkach\Desktop\.NET Practice\iamtimcorey.com\FirstConsoleProjects\GreetingApplication\bin\Debug\net6.0\GreetingApplication.exe
+C:\Users\dtkach\Desktop\.NET Practice\iamtimcorey.com\FirstConsoleProjects\GreetingApplication\bin\Debug\net6.0\GreetingApplication.deps.json
+C:\Users\dtkach\Desktop\.NET Practice\iamtimcorey.com\FirstConsoleProjects\GreetingApplication\bin\Debug\net6.0\GreetingApplication.runtimeconfig.json
+C:\Users\dtkach\Desktop\.NET Practice\iamtimcorey.com\FirstConsoleProjects\GreetingApplication\bin\Debug\net6.0\GreetingApplication.dll
+C:\Users\dtkach\Desktop\.NET Practice\iamtimcorey.com\FirstConsoleProjects\GreetingApplication\bin\Debug\net6.0\GreetingApplication.pdb
+C:\Users\dtkach\Desktop\.NET Practice\iamtimcorey.com\FirstConsoleProjects\GreetingApplication\obj\Debug\net6.0\GreetingApplication.csproj.AssemblyReference.cache
+C:\Users\dtkach\Desktop\.NET Practice\iamtimcorey.com\FirstConsoleProjects\GreetingApplication\obj\Debug\net6.0\GreetingApplication.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dtkach\Desktop\.NET Practice\iamtimcorey.com\FirstConsoleProjects\GreetingApplication\obj\Debug\net6.0\GreetingApplication.AssemblyInfoInputs.cache
+C:\Users\dtkach\Desktop\.NET Practice\iamtimcorey.com\FirstConsoleProjects\GreetingApplication\obj\Debug\net6.0\GreetingApplication.AssemblyInfo.cs
+C:\Users\dtkach\Desktop\.NET Practice\iamtimcorey.com\FirstConsoleProjects\GreetingApplication\obj\Debug\net6.0\GreetingApplication.csproj.CoreCompileInputs.cache
+C:\Users\dtkach\Desktop\.NET Practice\iamtimcorey.com\FirstConsoleProjects\GreetingApplication\obj\Debug\net6.0\GreetingApplication.dll
+C:\Users\dtkach\Desktop\.NET Practice\iamtimcorey.com\FirstConsoleProjects\GreetingApplication\obj\Debug\net6.0\refint\GreetingApplication.dll
+C:\Users\dtkach\Desktop\.NET Practice\iamtimcorey.com\FirstConsoleProjects\GreetingApplication\obj\Debug\net6.0\GreetingApplication.pdb
+C:\Users\dtkach\Desktop\.NET Practice\iamtimcorey.com\FirstConsoleProjects\GreetingApplication\obj\Debug\net6.0\GreetingApplication.genruntimeconfig.cache
+C:\Users\dtkach\Desktop\.NET Practice\iamtimcorey.com\FirstConsoleProjects\GreetingApplication\obj\Debug\net6.0\ref\GreetingApplication.dll

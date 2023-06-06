@@ -1,8 +1,8 @@
-﻿// Program's welcome messages
-Console.ForegroundColor = ConsoleColor.Yellow;
-Console.WriteLine("\t***** GuestBook 2023 *****");
-Console.ForegroundColor = ConsoleColor.DarkGray;
-Console.WriteLine("Leave name blank to exit the GuestBook application.\n");
+﻿using static GuestBook.GuestLogic;
+
+// Program's welcome messages
+LogMessage("\t***** GuestBook 2023 *****\n", "yellow");
+LogMessage("Leave name blank to exit the GuestBook application.\n\n");
 
 // Variables definitions
 Dictionary<string, int> guests = new();
@@ -13,34 +13,30 @@ int membersCount;
 while (true)
 {
     // Ask for name
-    Console.ForegroundColor = ConsoleColor.White;
-    Console.Write("Family name, please: ");
+    LogMessage("Family name, please: ", "white");
     Console.ForegroundColor = ConsoleColor.Cyan;
     name = Console.ReadLine();
     if (name == "") break;
 
     // Ask for number of members
-    Console.ForegroundColor = ConsoleColor.White;
-    Console.Write("How many members? ");
+    LogMessage("How many members? ", "white");
     Console.ForegroundColor = ConsoleColor.Cyan;
     bool validEntry = int.TryParse(Console.ReadLine(), out membersCount);
 
     // Save data
     if (!validEntry)
     {
-        Console.WriteLine("Entry not valid.");
+        LogMessage("Entry not valid.\n", "red");
     } 
     else
     {
         guests[name] = membersCount;
-        Console.ForegroundColor = ConsoleColor.DarkGray;
-        Console.WriteLine($"{name} family registered successfully.\n");
+        LogMessage($"{name} family registered successfully.\n");
     }
 }
-Console.ForegroundColor = ConsoleColor.DarkGray;
-Console.WriteLine("Data entry finished...");
-Console.ForegroundColor = ConsoleColor.White;
-Console.WriteLine("\nThe following info was registered into the guest book:\n");
+
+LogMessage("Data entry finished...\n");
+LogMessage("\nThe following info was registered into the guest book:\n");
 
 // Count guests
 int totalGuestsCount = 0;
@@ -50,22 +46,18 @@ foreach(var guest in guests)
 }
 
 // Print data
-Console.ForegroundColor = ConsoleColor.Yellow;
-Console.WriteLine($"\n\t\tTotal guests: {totalGuestsCount}");
-Console.WriteLine("--------------------------------------------------------");
+LogMessage($"\n\tTotal guests: {totalGuestsCount}\n", "yellow");
+LogMessage("--------------------------------------------------------\n");
 
 int placeIndex = 1;
-Console.ForegroundColor = ConsoleColor.DarkCyan;
 string TABS = "\t\t\t";
-Console.WriteLine($"PLACE{TABS}FAMILY{TABS}MEMBERS");
-Console.ForegroundColor = ConsoleColor.Cyan;
+LogMessage($"PLACE{TABS}FAMILY{TABS}MEMBERS\n", "darkCyan");
 foreach (var guest in guests)
 {
-    Console.WriteLine($"{placeIndex}{TABS}{guest.Key}{TABS}{guest.Value}");
+    LogMessage($"{placeIndex}{TABS}{guest.Key}{TABS}{guest.Value}\n", "cyan");
     placeIndex++;
 }
 
 // Close program
-Console.ForegroundColor = ConsoleColor.Gray;
-Console.WriteLine("\nThank you for using GuestBook. Goodbye...");
+LogMessage("\nThank you for using GuestBook. Goodbye...");
 Console.ReadKey();
