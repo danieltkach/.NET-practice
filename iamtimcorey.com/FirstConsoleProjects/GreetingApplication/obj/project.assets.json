@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dtkach\\Desktop\\.NET\\iamtimcorey.com\\FirstConsoleProjects\\GreetingApplication\\GreetingApplication.csproj",
+      "projectUniqueName": "C:\\Users\\dtkach\\Desktop\\.NET Practice\\iamtimcorey.com\\FirstConsoleProjects\\GreetingApplication\\GreetingApplication.csproj",
       "projectName": "GreetingApplication",
-      "projectPath": "C:\\Users\\dtkach\\Desktop\\.NET\\iamtimcorey.com\\FirstConsoleProjects\\GreetingApplication\\GreetingApplication.csproj",
+      "projectPath": "C:\\Users\\dtkach\\Desktop\\.NET Practice\\iamtimcorey.com\\FirstConsoleProjects\\GreetingApplication\\GreetingApplication.csproj",
       "packagesPath": "C:\\Users\\dtkach\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dtkach\\Desktop\\.NET\\iamtimcorey.com\\FirstConsoleProjects\\GreetingApplication\\obj\\",
+      "outputPath": "C:\\Users\\dtkach\\Desktop\\.NET Practice\\iamtimcorey.com\\FirstConsoleProjects\\GreetingApplication\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dtkach\\AppData\\Roaming\\NuGet\\NuGet.Config",
