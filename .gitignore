@@ -1,3 +1,12 @@
 **/obj/
 **/bin/
 **/.vs/
+desktop.ini
+
+.vs/
+*.lock
+*.bin
+*.v2
+*.suo
+*.cache
+*.editorconfig
