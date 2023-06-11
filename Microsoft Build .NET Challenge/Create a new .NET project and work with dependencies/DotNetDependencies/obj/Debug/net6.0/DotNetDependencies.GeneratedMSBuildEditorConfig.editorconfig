@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DotNetDependencies
-build_property.ProjectDir = C:\Users\dtkach\Desktop\.NET\Create a new .NET project and work with dependencies\DotNetDependencies\
+build_property.ProjectDir = C:\Users\dtkach\Desktop\.NET Practice\Microsoft Build .NET Challenge\Create a new .NET project and work with dependencies\DotNetDependencies\
