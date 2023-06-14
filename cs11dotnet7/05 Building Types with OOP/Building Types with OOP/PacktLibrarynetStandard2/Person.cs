@@ -8,4 +8,5 @@ public class Person
     public DateTime DateOfBirth;
     public WondersOfTheAncientWorld FavoriteAncientWonder;
     public WondersOfTheAncientWorld BucketList;
+    public List<Person> Children = new();
 }
