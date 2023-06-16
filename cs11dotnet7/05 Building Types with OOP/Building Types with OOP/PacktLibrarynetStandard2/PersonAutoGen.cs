@@ -3,6 +3,13 @@
 // Splitting classes using partial
 public partial class Person
 {
+    public void Deconstruct(out string origin, out string greeting, out int age)
+    {
+        origin = Origin;
+        greeting = Greeting;
+        age = Age;
+    }
+
     public string Origin
     {
         get
@@ -15,7 +22,7 @@ public partial class Person
     }
     public string Greeting => $"{Name} says 'Hello!'";
     public int Age => DateTime.Today.Year - DateOfBirth.Year;
-    public string? FavoriteIceCream { get; set; }
+    public string FavoriteIceCream { get; set; }
 
     // controlling access with properties and indexers
     private string favoritePrimaryColor;

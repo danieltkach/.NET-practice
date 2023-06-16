@@ -80,6 +80,8 @@ Person sam = new()
 WriteLine(sam.Origin);
 WriteLine(sam.Greeting);
 WriteLine(sam.Age);
+(string origin, string greeting, int age) = sam;
+WriteLine($"{sam.Name}'s info:\n {origin} \t {greeting} \t age: {age}");
 
 sam.FavoriteIceCream = "Chocolate Fudge";
 WriteLine(sam.FavoriteIceCream);
