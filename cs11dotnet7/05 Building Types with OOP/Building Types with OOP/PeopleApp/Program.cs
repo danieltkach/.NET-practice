@@ -71,3 +71,26 @@ WriteLine(format:
     arg0: gunny.Name,
     arg1: gunny.HomePlanet,
     arg2: gunny.Instantiated);
+
+Person sam = new()
+{
+    Name = "Sam",
+    DateOfBirth = new(1969, 6, 25)
+};
+WriteLine(sam.Origin);
+WriteLine(sam.Greeting);
+WriteLine(sam.Age);
+
+sam.FavoriteIceCream = "Chocolate Fudge";
+WriteLine(sam.FavoriteIceCream);
+string color = "Re";
+try
+{
+    sam.FavoritePrimaryColor = color;
+    WriteLine(sam.FavoritePrimaryColor);
+}
+catch (Exception ex)
+{
+    WriteLine("Tried to set {0} to '{1}': {2}",
+        nameof(sam.FavoritePrimaryColor), color, ex.Message);
+}
