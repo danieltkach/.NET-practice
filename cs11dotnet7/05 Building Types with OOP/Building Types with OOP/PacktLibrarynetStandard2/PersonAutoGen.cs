@@ -48,4 +48,33 @@ public partial class Person
             }
         }
     }
+
+    // indexers
+    public Person this[int index]
+    {
+        get
+        {
+            return Children[index];
+        }
+        set
+        {
+            Children[index] = value;
+        }
+    }
+    // overloading
+    public Person this[string name]
+    {
+        get
+        {
+            return Children.Find(p => p.Name == name);
+        }
+        set
+        {
+            Person found = Children.Find(p => p.Name == name);
+            if (found is not null)
+            {
+                found = value;
+            }
+        }
+    }
 }

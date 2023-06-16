@@ -80,7 +80,7 @@ Person sam = new()
 WriteLine(sam.Origin);
 WriteLine(sam.Greeting);
 WriteLine(sam.Age);
-(string origin, string greeting, int age) = sam;
+var (origin, greeting, age) = sam;
 WriteLine($"{sam.Name}'s info:\n {origin} \t {greeting} \t age: {age}");
 
 sam.FavoriteIceCream = "Chocolate Fudge";
@@ -96,3 +96,15 @@ catch (Exception ex)
     WriteLine("Tried to set {0} to '{1}': {2}",
         nameof(sam.FavoritePrimaryColor), color, ex.Message);
 }
+
+// Indexing
+sam.Children.Add(new() { Name = "Charlie", DateOfBirth = new(2010, 3, 18) });
+sam.Children.Add(new() { Name = "Ella", DateOfBirth = new(2020, 12, 24) });
+// get using Children list
+WriteLine($"Sam's first child is {sam.Children[0].Name}.");
+WriteLine($"Sam's second child is {sam.Children[1].Name}.");
+// get using integer position indexer
+WriteLine($"Sam's first child is {sam[0].Name}");
+WriteLine($"Sam's second child is {sam[1].Name}");
+// get using name indexer
+WriteLine($"Sam's child named Ella is {sam["Ella"].Age} years old.");
