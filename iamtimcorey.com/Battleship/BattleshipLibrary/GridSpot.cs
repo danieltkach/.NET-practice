@@ -9,11 +9,13 @@
 
         public string SpotLetter
 		{
+			get { return spotLetter;  }
 			set { spotLetter = value; }
 		}
 
 		public int SpotNumber
 		{ 
+			get { return spotNumber; }
 			set { spotNumber = value; } 
 		}
 

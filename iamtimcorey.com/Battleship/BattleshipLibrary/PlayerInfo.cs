@@ -21,9 +21,22 @@
 			get { return shotsGrid; }
 		}
 
-		public void AddShot(GridSpot spot)
-		{
-			shotsGrid.Add(spot);
-		}
-	}
+        public bool Shoot(PlayerInfo player, GridSpot coordinate)
+        {
+            foreach (var spot in player.ShipLocations)
+            {
+                if (spot.SpotLetter == coordinate.SpotLetter
+                    && spot.SpotNumber == coordinate.SpotNumber)
+                {
+                    spot.SetHit();
+                    return true;
+                }
+                else
+                {
+                    spot.SetMiss();
+                }
+            }
+            return false;
+        }
+    }
 }
