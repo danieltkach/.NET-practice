@@ -3,7 +3,7 @@
     public class PlayerInfo
     {
         public string Username { get; set; }
-		private List<GridSpot> shipLocations = new();
+        private List<GridSpot> shipLocations = new();
 		private List<GridSpot> shotsGrid = new();
 
 		public List<GridSpot> ShipLocations
