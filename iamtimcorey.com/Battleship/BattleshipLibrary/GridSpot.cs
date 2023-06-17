@@ -4,7 +4,7 @@
     {
         private string spotLetter;
 		private int spotNumber;
-        public enum SpotStatus { empty, hit, miss };
+        public enum SpotStatus { empty, ship, hit, miss };
 		private SpotStatus status = SpotStatus.empty;
 
         public string SpotLetter
@@ -27,6 +27,11 @@
         public SpotStatus Status
 		{
 			get { return status; }
+		}
+
+		public void SetShip()
+		{
+			status = SpotStatus.ship;
 		}
 
 		public void SetHit()

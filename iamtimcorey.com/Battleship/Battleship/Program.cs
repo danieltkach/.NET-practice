@@ -1,41 +1,36 @@
 ﻿using BattleshipLibrary;
 
 // Configuration
-const int maxShips = 2;
 string[] allowedLetters = { "A", "B", "C", "D", "E" };
-ConsoleUI consoleUI = new(allowedLetters, maxShips);
+const int gridSize = 5;
+const int shipsPerPlayer = 3;
+ConsoleUI consoleUI = new(allowedLetters, gridSize, shipsPerPlayer);
 
 // Player 1 registration
-consoleUI.WelcomeMessage();
-consoleUI.PrintRules(); 
-PlayerInfo player1 = new(); 
-consoleUI.ReadPlayerInfo(player1, "Name for player 1: ");
-consoleUI.ReadShipLocations(player1);
+PlayerInfo player1 = new();
+consoleUI.PlayerRegistration(player1, "Name for player 1: ");
 
 // Player 2 registration
-consoleUI.WelcomeMessage();
-consoleUI.PrintRules();
-Clear();
 PlayerInfo player2 = new();
-consoleUI.ReadPlayerInfo(player2, "Name for player 2: ");
-consoleUI.ReadShipLocations(player2);
+consoleUI.PlayerRegistration(player2, "Name for player 2: ");
 
 // Game loop
-bool gameOver = false;
-int player1Points = 0;
-int player2Points = 0;
+Clear();
+bool gameRunning;
 do
 {
-    WriteLine("Player 1's turn");
-    GridSpot demoShoot = new GridSpot()
-    {
-        SpotLetter = "A",
-        SpotNumber = 1,
-    };
-    bool hit = player1.Shoot(player2, demoShoot);
-    WriteLine(hit);
-    gameOver = true;
-    WriteLine("Player 2's turn");
-} while (!gameOver);
+    consoleUI.PlayerTurn(player1, player2, "Player 1's turn");
+    consoleUI.PlayerTurn(player2, player1, "Player 2's turn");
+    gameRunning = (player1.Points < shipsPerPlayer) && (player2.Points < shipsPerPlayer);
+} while (gameRunning);
+
+if (player1.Points == shipsPerPlayer)
+{
+    WriteLine("Player 1 Wins!");
+}
+else
+{
+    WriteLine("Player 2 Wins!");
+}
 
 ReadKey();
