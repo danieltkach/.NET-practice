@@ -110,5 +110,11 @@ namespace BattleshipLibrary
                 ResetColor();
             }
         }
+
+        public void PrintPoints(PlayerInfo player1, PlayerInfo player2)
+        {
+            Clear();
+            WriteLine($"Player 1: {player1.Points} \t\t Player 2: {player2.Points}");
+        }
     }
 }

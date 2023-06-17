@@ -1,9 +1,9 @@
 ﻿using BattleshipLibrary;
 
 // Configuration
-string[] allowedLetters = { "A", "B", "C", "D", "E" };
-const int gridSize = 5;
-const int shipsPerPlayer = 3;
+string[] allowedLetters = { "A", "B", "C" };
+const int gridSize = 3;
+const int shipsPerPlayer = 1;
 ConsoleUI consoleUI = new(allowedLetters, gridSize, shipsPerPlayer);
 
 // Player 1 registration
@@ -24,13 +24,21 @@ do
     gameRunning = (player1.Points < shipsPerPlayer) && (player2.Points < shipsPerPlayer);
 } while (gameRunning);
 
+// Game ending
+ForegroundColor = ConsoleColor.Red;
+WriteLine("* * * * * * * * * * * * * * * * * * * * * ");
+ForegroundColor = ConsoleColor.Yellow;
 if (player1.Points == shipsPerPlayer)
 {
-    WriteLine("Player 1 Wins!");
+    WriteLine($"               {player1.Username} Wins!");
 }
 else
 {
-    WriteLine("Player 2 Wins!");
+    WriteLine($"               {player2.Username} Wins!");
 }
-
+ForegroundColor = ConsoleColor.Red;
+WriteLine("* * * * * * * * * * * * * * * * * * * * * ");
+ReadKey();
+ResetColor();
+WriteLine("\n...thank you for playing!");
 ReadKey();
