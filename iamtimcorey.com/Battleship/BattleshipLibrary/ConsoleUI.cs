@@ -8,6 +8,7 @@ namespace BattleshipLibrary
         private readonly string[] allowedLetters;
         private readonly int gridSize;
         private readonly int maxShips;
+        int playerInputCursorPosition = 12;
 
         public ConsoleUI(string[] letters, int size, int ships)
         {    
@@ -82,9 +83,9 @@ namespace BattleshipLibrary
             return inputNumber;
         }
 
-        public GridModel ReadCoordinate()
+        public GridSpotModel ReadCoordinate()
         {
-            GridModel shipLocation = new()
+            GridSpotModel shipLocation = new()
             {
                 SpotLetter = GetValidatedLetter(),
                 SpotNumber = GetValidatedNumber()
@@ -100,27 +101,40 @@ namespace BattleshipLibrary
                 Write($"Coordinates for ship ");
                 ForegroundColor = ConsoleColor.Red;
                 WriteLine($"#{i}");
-                GridModel shipLocation = ReadCoordinate();
+                GridSpotModel shipLocation = ReadCoordinate();
                 player.AddShipLocation(shipLocation);
             }
         }
 
         public void PlayerTurn(PlayerInfo shooter, PlayerInfo target, string message)
         {
+            for (int i = 0; i < 4; i++)
+            {
+                SetCursorPosition(0, playerInputCursorPosition + i);
+                WriteLine("                        ");
+            }
+            SetCursorPosition(0, playerInputCursorPosition);
+            ForegroundColor = ConsoleColor.Blue;
             WriteLine(message);
-            GridModel shoot = ReadCoordinate();
+            GridSpotModel shoot = ReadCoordinate();
             bool hit = shooter.Shoot(target, shoot);
             if (hit)
             {
+                SetCursorPosition(WindowWidth / 2 - 10, 0);
+                Write("                                        ");
+                SetCursorPosition(WindowWidth / 2 - 10, 0);
                 ForegroundColor = ConsoleColor.Red;
-                WriteLine("* Ship HIT! *\n");
+                Write($"{ shooter.Username} HITS!");
                 shooter.AddPoint();
                 ResetColor();
             }
             else
             {
+                SetCursorPosition(WindowWidth / 2 - 10, 0);
+                Write("                                        ");
+                SetCursorPosition(WindowWidth / 2 - 10, 0);
                 ForegroundColor = ConsoleColor.Cyan;
-                WriteLine("_ miss _ \n");
+                Write($"{shooter.Username} _ misses _ ");
                 ResetColor();
             }
         }

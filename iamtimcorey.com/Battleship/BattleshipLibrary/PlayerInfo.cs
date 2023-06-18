@@ -24,35 +24,35 @@
         }
 
         // Ships
-        private List<GridModel> shipLocations = new();
+        private List<GridSpotModel> shipLocations = new();
         
-        public List<GridModel> ShipLocations
+        public List<GridSpotModel> ShipLocations
 		{
 			get { return shipLocations; }
 		}
 		
-        public void AddShipLocation(GridModel spot)
+        public void AddShipLocation(GridSpotModel spot)
 		{
             spot.SetShip();
 			shipLocations.Add(spot);
 		}
 
         // Shots
-        private List<GridModel> shotsGrid = new();
+        private List<GridSpotModel> shotsGrid = new();
         
-        public List<GridModel> ShotsGrid
+        public List<GridSpotModel> ShotsGrid
 		{
 			get { return shotsGrid; }
 		}
         
-        public bool Shoot(PlayerInfo target, GridModel coordinate)
+        public bool Shoot(PlayerInfo target, GridSpotModel coordinate)
         {
             foreach (var spot in target.ShipLocations)
             {
                 if (
                     spot.SpotLetter == coordinate.SpotLetter
                     && spot.SpotNumber == coordinate.SpotNumber
-                    && spot.Status != GridModel.SpotStatus.hit
+                    && spot.Status != GridSpotModel.SpotStatus.hit
                     )
                 {
                     spot.SetHit();

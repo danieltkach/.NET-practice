@@ -3,17 +3,10 @@
 // Configuration
 string[] allowedLetters = { "A", "B", "C", "D", "E", "F", "G" };
 int gridSize = allowedLetters.Length;
-const int shipsPerPlayer = 1;
+const int shipsPerPlayer = 3;
 ConsoleUI consoleUI = new(allowedLetters, gridSize, shipsPerPlayer);
 GridUI gridUI = new(allowedLetters, gridSize);
-
-gridUI.PrintGrid();
-gridUI.DrawAttack("A", 5, GridUI.AttackType.miss);
-gridUI.DrawAttack("F", 2, GridUI.AttackType.miss);
-gridUI.DrawAttack("E", 4, GridUI.AttackType.hit);
-gridUI.DrawAttack("A", 3, GridUI.AttackType.hit);
-
-ReadKey();
+Beep();
 
 // Player 1 registration
 PlayerInfo player1 = new();
@@ -25,29 +18,39 @@ consoleUI.PlayerRegistration(player2, "Name for player 2: ");
 
 // Game loop
 Clear();
+gridUI.PrintBlankGrid();
 do
 {
+    gridUI.UpdateGrid(player1);
     consoleUI.PlayerTurn(player1, player2, "Player 1's turn");
     if (player1.Points == shipsPerPlayer) break;
+
+    gridUI.UpdateGrid(player2);
     consoleUI.PlayerTurn(player2, player1, "Player 2's turn");
     if (player2.Points == shipsPerPlayer) break;
 } while (true);
 
 // Game ending
+SetCursorPosition(WindowWidth / 2 - 20, 0);
 ForegroundColor = ConsoleColor.Red;
-WriteLine("* * * * * * * * * * * * * * * * * * * * * ");
+Write("* * * * * * * * * * * * * * * * * * * * * ");
 ForegroundColor = ConsoleColor.Yellow;
+SetCursorPosition(WindowWidth / 2 - 20, 1);
 if (player1.Points == shipsPerPlayer)
 {
-    WriteLine($"               {player1.Username} Wins!");
+    Write($"               {player1.Username} Wins!");
 }
 else
 {
-    WriteLine($"               {player2.Username} Wins!");
+    Write($"               {player2.Username} Wins!");
 }
+SetCursorPosition(WindowWidth / 2 - 20, 2);
 ForegroundColor = ConsoleColor.Red;
 WriteLine("* * * * * * * * * * * * * * * * * * * * * ");
+Beep();
 ReadKey();
 ResetColor();
-WriteLine("\n...thank you for playing!");
+SetCursorPosition(25, 16);
+ForegroundColor = ConsoleColor.Yellow;
+WriteLine("...thank you for playing!");
 ReadKey();
