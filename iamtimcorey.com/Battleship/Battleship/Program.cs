@@ -19,31 +19,41 @@ consoleUI.PlayerRegistration(player2, "Name for player 2: ");
 // Game loop
 Clear();
 gridUI.PrintBlankGrid();
+PlayerInfo winner;
+PlayerInfo looser;
 do
 {
     gridUI.UpdateGrid(player1);
     consoleUI.PlayerTurn(player1, player2, "Player 1's turn");
-    if (player1.Points == shipsPerPlayer) break;
+    if (player1.Points == shipsPerPlayer)
+    {
+        winner = player1;
+        looser = player2;
+        break;
+    }
 
     gridUI.UpdateGrid(player2);
     consoleUI.PlayerTurn(player2, player1, "Player 2's turn");
-    if (player2.Points == shipsPerPlayer) break;
+    if (player2.Points == shipsPerPlayer)
+    {
+        winner = player2;
+        looser = player1;
+        break;
+    }
 } while (true);
 
 // Game ending
+// Print ships and show winner grid
+gridUI.UpdateGrid(looser);
+gridUI.PrintShips(winner);
+
+// Print signs
 SetCursorPosition(WindowWidth / 2 - 20, 0);
 ForegroundColor = ConsoleColor.Red;
 Write("* * * * * * * * * * * * * * * * * * * * * ");
 ForegroundColor = ConsoleColor.Yellow;
 SetCursorPosition(WindowWidth / 2 - 20, 1);
-if (player1.Points == shipsPerPlayer)
-{
-    Write($"               {player1.Username} Wins!");
-}
-else
-{
-    Write($"               {player2.Username} Wins!");
-}
+Write($"               {winner.Username} Wins!");
 SetCursorPosition(WindowWidth / 2 - 20, 2);
 ForegroundColor = ConsoleColor.Red;
 WriteLine("* * * * * * * * * * * * * * * * * * * * * ");

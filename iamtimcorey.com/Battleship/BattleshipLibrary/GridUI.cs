@@ -21,7 +21,7 @@
 
         public void PrintBlankGrid()
         {
-            ForegroundColor = ConsoleColor.DarkGray;
+            ForegroundColor = ConsoleColor.Gray;
             for (int j = 0; j < allowedLetters.Length; j++)
             {
                 for (int i = 1; i <= gridSize; i++)
@@ -34,23 +34,27 @@
             }
         }
 
-        private void DrawAttack(GridSpotModel spot)
+        private void DrawSpot(GridSpotModel spot)
         {
             var (x, y) = Coordinates(spot.SpotLetter, spot.SpotNumber);
             var type = spot.Status;
             SetCursorPosition(x, y);
-            string hitChars = "";
+            string spotChars = "";
             if (type == GridSpotModel.SpotStatus.hit)
             {
-                hitChars = "##";
+                spotChars = "##";
                 ForegroundColor = ConsoleColor.Red;
             }
             if (type == GridSpotModel.SpotStatus.miss)
             {
-                hitChars = "--";
+                spotChars = "--";
                 ForegroundColor = ConsoleColor.Cyan;
             }
-            Write(hitChars);
+            if (type == GridSpotModel.SpotStatus.ship)
+            {
+                spotChars = "[]";
+            }
+            Write(spotChars);
         }
 
         public void UpdateGrid(PlayerInfo player)
@@ -60,8 +64,17 @@
             {
                 if (spot.Status == GridSpotModel.SpotStatus.miss || spot.Status == GridSpotModel.SpotStatus.hit)
                 {
-                    DrawAttack(spot);
+                    DrawSpot(spot);
                 }
+            }
+        }
+
+        public void PrintShips(PlayerInfo player)
+        {
+            ForegroundColor = ConsoleColor.DarkGreen;
+            foreach (var spot in player.ShipLocations)
+            {
+                DrawSpot(spot);
             }
         }
     }
