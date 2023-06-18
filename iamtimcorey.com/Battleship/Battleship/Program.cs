@@ -6,7 +6,6 @@ int gridSize = allowedLetters.Length;
 const int shipsPerPlayer = 3;
 ConsoleUI consoleUI = new(allowedLetters, gridSize, shipsPerPlayer);
 GridUI gridUI = new(allowedLetters, gridSize);
-Beep();
 
 // Player 1 registration
 PlayerInfo player1 = new();

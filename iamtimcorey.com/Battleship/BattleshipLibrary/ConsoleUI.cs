@@ -125,6 +125,7 @@ namespace BattleshipLibrary
                 SetCursorPosition(WindowWidth / 2 - 10, 0);
                 ForegroundColor = ConsoleColor.Red;
                 Write($"{ shooter.Username} HITS!");
+                Beep(200, 2000);
                 shooter.AddPoint();
                 ResetColor();
             }
@@ -135,6 +136,9 @@ namespace BattleshipLibrary
                 SetCursorPosition(WindowWidth / 2 - 10, 0);
                 ForegroundColor = ConsoleColor.Cyan;
                 Write($"{shooter.Username} _ misses _ ");
+                Beep(1000, 100);
+                Beep(1000, 100);
+                Beep(1000, 100);
                 ResetColor();
             }
         }
