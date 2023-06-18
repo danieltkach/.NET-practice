@@ -18,20 +18,27 @@ namespace BattleshipLibrary
 
         public void WelcomeMessage()
         {
-            WriteLine("Welcome to Battleship");
+            ForegroundColor = ConsoleColor.Cyan;
+            Write("Welcome to ");
+            ForegroundColor = ConsoleColor.Red;
+            Write("Battleship");
         }
 
         public void PrintRules()
         {
+            ForegroundColor = ConsoleColor.DarkCyan;
             WriteLine("\nRules:");
             Write("Allowed letters are: ");
             WriteLine(string.Join(" ", allowedLetters));
             WriteLine($"Allowed numbers are from 1 to {gridSize}");
+            ResetColor();
         }
 
         private void ReadPlayerInfo(PlayerInfo player, string prompt)
         {
+            ForegroundColor = ConsoleColor.Cyan;
             Write($"\n{prompt}");
+            ForegroundColor = ConsoleColor.Red;
             player.Username = ReadLine();
         }
 
@@ -49,7 +56,9 @@ namespace BattleshipLibrary
             string inputLetter;
             do
             {
+                ForegroundColor = ConsoleColor.Cyan;
                 Write("Letter: ");
+                ForegroundColor = ConsoleColor.Red;
                 inputLetter = ReadLine().ToUpper();
             } while (!allowedLetters.Contains(inputLetter));
             return inputLetter;
@@ -61,19 +70,21 @@ namespace BattleshipLibrary
             int inputNumber;
             do
             {
+                ForegroundColor = ConsoleColor.Cyan;
                 Write("Number: ");
+                ForegroundColor = ConsoleColor.Red;
                 validNumber = 
                     int.TryParse(ReadLine(), out inputNumber)
-                    && inputNumber <= allowedLetters.Length
+                    && inputNumber <= gridSize
                     && inputNumber > 0;
 
             } while (!validNumber);
             return inputNumber;
         }
 
-        public GridSpot ReadCoordinate()
+        public GridModel ReadCoordinate()
         {
-            GridSpot shipLocation = new()
+            GridModel shipLocation = new()
             {
                 SpotLetter = GetValidatedLetter(),
                 SpotNumber = GetValidatedNumber()
@@ -85,8 +96,11 @@ namespace BattleshipLibrary
         {
             for (int i = 1; i <= maxShips; i++)
             {
-                WriteLine($"Coordinates for ship #{i}");
-                GridSpot shipLocation = ReadCoordinate();
+                ForegroundColor = ConsoleColor.Cyan;
+                Write($"Coordinates for ship ");
+                ForegroundColor = ConsoleColor.Red;
+                WriteLine($"#{i}");
+                GridModel shipLocation = ReadCoordinate();
                 player.AddShipLocation(shipLocation);
             }
         }
@@ -94,27 +108,21 @@ namespace BattleshipLibrary
         public void PlayerTurn(PlayerInfo shooter, PlayerInfo target, string message)
         {
             WriteLine(message);
-            GridSpot shoot = ReadCoordinate();
+            GridModel shoot = ReadCoordinate();
             bool hit = shooter.Shoot(target, shoot);
             if (hit)
             {
-                ForegroundColor = ConsoleColor.Green;
-                WriteLine("Ship hit!");
+                ForegroundColor = ConsoleColor.Red;
+                WriteLine("* Ship HIT! *\n");
                 shooter.AddPoint();
                 ResetColor();
             }
             else
             {
-                ForegroundColor = ConsoleColor.Red;
-                WriteLine("Miss!");
+                ForegroundColor = ConsoleColor.Cyan;
+                WriteLine("_ miss _ \n");
                 ResetColor();
             }
-        }
-
-        public void PrintPoints(PlayerInfo player1, PlayerInfo player2)
-        {
-            Clear();
-            WriteLine($"Player 1: {player1.Points} \t\t Player 2: {player2.Points}");
         }
     }
 }

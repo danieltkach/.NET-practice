@@ -1,6 +1,6 @@
 ﻿namespace BattleshipLibrary
 {
-    public class GridSpot
+    public class GridModel
     {
         private string spotLetter;
 		private int spotNumber;
