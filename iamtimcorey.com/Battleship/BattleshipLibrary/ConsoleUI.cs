@@ -96,13 +96,20 @@ namespace BattleshipLibrary
         {
             for (int i = 1; i <= maxShips; i++)
             {
-                ForegroundColor = ConsoleColor.Cyan;
-                Write($"Coordinates for ship ");
-                ForegroundColor = ConsoleColor.Red;
-                WriteLine($"#{i}");
-                GridSpotModel shipLocation = ReadCoordinate();
-                // TODO: before adding it must check it was not added already.
-                player.AddShipLocation(shipLocation);
+                bool alreadyExists;
+                GridSpotModel newShipLocation;
+                do
+                {
+                    ForegroundColor = ConsoleColor.Cyan;
+                    Write($"Coordinates for ship ");
+                    ForegroundColor = ConsoleColor.Yellow;
+                    WriteLine($"#{i}");
+                    newShipLocation = ReadCoordinate();
+                    alreadyExists = player.ShipLocations.Any(ship => ship.SpotLetter == newShipLocation.SpotLetter && ship.SpotNumber == newShipLocation.SpotNumber);
+                    ForegroundColor = ConsoleColor.DarkRed;
+                    if (alreadyExists) Console.WriteLine("You already added a ship in that location.");
+                } while (alreadyExists);
+                player.AddShipLocation(newShipLocation);
             }
         }
 

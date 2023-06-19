@@ -4,7 +4,7 @@
     {
         private readonly string[] allowedLetters;
         private readonly int gridSize;
-        private int offsetY = 3;
+        private readonly int offsetY = 3;
 
         public GridUI(string[] letters, int size)
         {

@@ -1,7 +1,7 @@
 ﻿using BattleshipLibrary;
 
 // Configuration
-string[] allowedLetters = { "A", "B", "C", "D", "E", "F", "G", "H", "I" };
+string[] allowedLetters = { "A", "B", "C", "D", "E", "F", "G" };
 int gridSize = allowedLetters.Length;
 const int shipsPerPlayer = 5;
 ConsoleUI consoleUI = new(allowedLetters, gridSize, shipsPerPlayer);
@@ -47,13 +47,14 @@ gridUI.UpdateGrid(looser);
 gridUI.PrintShips(winner);
 
 // Print signs
-SetCursorPosition(WindowWidth / 2 - 20, 0);
+int cursorX = WindowWidth / 2 - 20;
+SetCursorPosition(cursorX, 0);
 ForegroundColor = ConsoleColor.Red;
 Write("* * * * * * * * * * * * * * * * * * * * * ");
 ForegroundColor = ConsoleColor.Yellow;
-SetCursorPosition(WindowWidth / 2 - 20, 1);
+SetCursorPosition(cursorX, 1);
 Write($"               {winner.Username} Wins!");
-SetCursorPosition(WindowWidth / 2 - 20, 2);
+SetCursorPosition(cursorX, 2);
 ForegroundColor = ConsoleColor.Red;
 WriteLine("* * * * * * * * * * * * * * * * * * * * * ");
 Beep();
