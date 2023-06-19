@@ -3,29 +3,14 @@
     public class PlayerInfo
     {
         public string Username { get; set; }
-                
-        // Points
-        private int points = 0;
-        
-        public int Points {
-            get
-            {
-                return points;
-            }
-            private set 
-            {
-                points = value;
-            }
-        }
-        
+        public int Points { get; private set; } = 0;
+       
         public void AddPoint()
         {
-            points++;
+            Points++;
         }
 
-        // Ships
         private List<GridSpotModel> shipLocations = new();
-        
         public List<GridSpotModel> ShipLocations
 		{
 			get { return shipLocations; }
@@ -37,13 +22,7 @@
 			shipLocations.Add(spot);
 		}
 
-        // Shots
-        private List<GridSpotModel> shotsGrid = new();
-        
-        public List<GridSpotModel> ShotsGrid
-		{
-			get { return shotsGrid; }
-		}
+        public List<GridSpotModel> ShotsGrid { get; } = new();
         
         public bool Shoot(PlayerInfo target, GridSpotModel coordinate)
         {

@@ -36,10 +36,11 @@
 
         private void DrawSpot(GridSpotModel spot)
         {
-            var (x, y) = Coordinates(spot.SpotLetter, spot.SpotNumber);
-            var type = spot.Status;
-            SetCursorPosition(x, y);
             string spotChars = "";
+            var (x, y) = Coordinates(spot.SpotLetter, spot.SpotNumber);
+            SetCursorPosition(x, y);
+            var type = spot.Status;
+
             if (type == GridSpotModel.SpotStatus.hit)
             {
                 spotChars = "##";
@@ -52,7 +53,7 @@
             }
             if (type == GridSpotModel.SpotStatus.ship)
             {
-                spotChars = "[]";
+                spotChars = "<]";
             }
             Write(spotChars);
         }
@@ -62,7 +63,8 @@
             PrintBlankGrid();
             foreach(var spot in player.ShotsGrid)
             {
-                if (spot.Status == GridSpotModel.SpotStatus.miss || spot.Status == GridSpotModel.SpotStatus.hit)
+                if (spot.Status == GridSpotModel.SpotStatus.miss 
+                    || spot.Status == GridSpotModel.SpotStatus.hit)
                 {
                     DrawSpot(spot);
                 }

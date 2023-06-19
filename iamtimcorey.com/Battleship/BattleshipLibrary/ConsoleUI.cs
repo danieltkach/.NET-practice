@@ -8,7 +8,7 @@ namespace BattleshipLibrary
         private readonly string[] allowedLetters;
         private readonly int gridSize;
         private readonly int maxShips;
-        int playerInputCursorPosition = 12;
+        int playerInputCursorPosition = 14;
 
         public ConsoleUI(string[] letters, int size, int ships)
         {    
@@ -20,9 +20,9 @@ namespace BattleshipLibrary
         public void WelcomeMessage()
         {
             ForegroundColor = ConsoleColor.Cyan;
-            Write("Welcome to ");
+            Write("*** Welcome to ");
             ForegroundColor = ConsoleColor.Red;
-            Write("Battleship");
+            Write("Battleship >>>\n");
         }
 
         public void PrintRules()
@@ -78,7 +78,6 @@ namespace BattleshipLibrary
                     int.TryParse(ReadLine(), out inputNumber)
                     && inputNumber <= gridSize
                     && inputNumber > 0;
-
             } while (!validNumber);
             return inputNumber;
         }
@@ -102,6 +101,7 @@ namespace BattleshipLibrary
                 ForegroundColor = ConsoleColor.Red;
                 WriteLine($"#{i}");
                 GridSpotModel shipLocation = ReadCoordinate();
+                // TODO: before adding it must check it was not added already.
                 player.AddShipLocation(shipLocation);
             }
         }
@@ -116,13 +116,20 @@ namespace BattleshipLibrary
             SetCursorPosition(0, playerInputCursorPosition);
             ForegroundColor = ConsoleColor.Blue;
             WriteLine(message);
+
+            void ErasePreviousMessage()
+            {
+                int resultCursorPosition = WindowWidth / 2 - 10;
+                SetCursorPosition(resultCursorPosition, 0);
+                Write("                                        ");
+                SetCursorPosition(resultCursorPosition, 0);
+            }
+
             GridSpotModel shoot = ReadCoordinate();
             bool hit = shooter.Shoot(target, shoot);
             if (hit)
             {
-                SetCursorPosition(WindowWidth / 2 - 10, 0);
-                Write("                                        ");
-                SetCursorPosition(WindowWidth / 2 - 10, 0);
+                ErasePreviousMessage();
                 ForegroundColor = ConsoleColor.Red;
                 Write($"{ shooter.Username} HITS!");
                 Beep(200, 2000);
@@ -131,9 +138,7 @@ namespace BattleshipLibrary
             }
             else
             {
-                SetCursorPosition(WindowWidth / 2 - 10, 0);
-                Write("                                        ");
-                SetCursorPosition(WindowWidth / 2 - 10, 0);
+                ErasePreviousMessage();
                 ForegroundColor = ConsoleColor.Cyan;
                 Write($"{shooter.Username} _ misses _ ");
                 Beep(1000, 100);

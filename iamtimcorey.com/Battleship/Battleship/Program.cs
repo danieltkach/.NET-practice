@@ -1,9 +1,9 @@
 ﻿using BattleshipLibrary;
 
 // Configuration
-string[] allowedLetters = { "A", "B", "C", "D", "E", "F", "G" };
+string[] allowedLetters = { "A", "B", "C", "D", "E", "F", "G", "H", "I" };
 int gridSize = allowedLetters.Length;
-const int shipsPerPlayer = 3;
+const int shipsPerPlayer = 5;
 ConsoleUI consoleUI = new(allowedLetters, gridSize, shipsPerPlayer);
 GridUI gridUI = new(allowedLetters, gridSize);
 
@@ -23,7 +23,7 @@ PlayerInfo looser;
 do
 {
     gridUI.UpdateGrid(player1);
-    consoleUI.PlayerTurn(player1, player2, "Player 1's turn");
+    consoleUI.PlayerTurn(player1, player2, $"{player1.Username}'s turn");
     if (player1.Points == shipsPerPlayer)
     {
         winner = player1;
@@ -32,7 +32,7 @@ do
     }
 
     gridUI.UpdateGrid(player2);
-    consoleUI.PlayerTurn(player2, player1, "Player 2's turn");
+    consoleUI.PlayerTurn(player2, player1, $"{player2.Username}'s turn");
     if (player2.Points == shipsPerPlayer)
     {
         winner = player2;

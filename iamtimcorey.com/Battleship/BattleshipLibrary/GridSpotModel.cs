@@ -2,26 +2,14 @@
 {
     public class GridSpotModel
     {
-        private string spotLetter;
-		private int spotNumber;
         public enum SpotStatus { empty, ship, hit, miss };
 		private SpotStatus status = SpotStatus.empty;
-
-        public string SpotLetter
-		{
-			get { return spotLetter;  }
-			set { spotLetter = value; }
-		}
-
-		public int SpotNumber
-		{ 
-			get { return spotNumber; }
-			set { spotNumber = value; } 
-		}
-
+        public string SpotLetter { get; set; }
+		public int SpotNumber { get; set; }
+		
         public string GetCoordinate()
         {
-            return spotLetter.ToString() + spotNumber.ToString();
+            return SpotLetter.ToString() + SpotNumber.ToString();
         }
 
         public SpotStatus Status
