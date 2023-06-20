@@ -9,12 +9,15 @@ namespace BattleshipLibrary
         private readonly int gridSize;
         private readonly int maxShips;
         int playerInputCursorPosition = 14;
+        public GridUI grid;
+        const string SPACES = "                                                    ";
 
         public ConsoleUI(string[] letters, int size, int ships)
         {    
             allowedLetters = letters;
             gridSize = size;
             maxShips = ships;
+            grid = new(letters, size);
         }
 
         public void WelcomeMessage()
@@ -49,6 +52,7 @@ namespace BattleshipLibrary
             WelcomeMessage();
             PrintRules();
             ReadPlayerInfo(player, message);
+            grid.PrintBlankGrid();
             ReadShipLocations(player);
         }
 
@@ -57,6 +61,9 @@ namespace BattleshipLibrary
             string inputLetter;
             do
             {
+                SetCursorPosition(0, playerInputCursorPosition+1);
+                WriteLine(SPACES);
+                SetCursorPosition(0, playerInputCursorPosition + 1);
                 ForegroundColor = ConsoleColor.Cyan;
                 Write("Letter: ");
                 ForegroundColor = ConsoleColor.Red;
@@ -71,6 +78,9 @@ namespace BattleshipLibrary
             int inputNumber;
             do
             {
+                SetCursorPosition(0, playerInputCursorPosition + 2);
+                WriteLine(SPACES);
+                SetCursorPosition(0, playerInputCursorPosition + 2);
                 ForegroundColor = ConsoleColor.Cyan;
                 Write("Number: ");
                 ForegroundColor = ConsoleColor.Red;
@@ -101,21 +111,29 @@ namespace BattleshipLibrary
                 do
                 {
                     ForegroundColor = ConsoleColor.Cyan;
+                    SetCursorPosition(0, playerInputCursorPosition);
+                    WriteLine(SPACES);
+                    WriteLine(SPACES);
+                    WriteLine(SPACES);
+                    SetCursorPosition(0, playerInputCursorPosition);
                     Write($"Coordinates for ship ");
                     ForegroundColor = ConsoleColor.Yellow;
                     WriteLine($"#{i}");
                     newShipLocation = ReadCoordinate();
                     alreadyExists = player.ShipLocations.Any(ship => ship.SpotLetter == newShipLocation.SpotLetter && ship.SpotNumber == newShipLocation.SpotNumber);
                     ForegroundColor = ConsoleColor.DarkRed;
-                    if (alreadyExists) Console.WriteLine("You already added a ship in that location.");
+                    if (alreadyExists) Console.WriteLine("\nYou already added a ship in that location.");
                 } while (alreadyExists);
+                SetCursorPosition(0, playerInputCursorPosition+4);
+                WriteLine(SPACES);
                 player.AddShipLocation(newShipLocation);
+                grid.PrintShips(player);
             }
         }
 
         public void PlayerTurn(PlayerInfo shooter, PlayerInfo target, string message)
         {
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 6; i++)
             {
                 SetCursorPosition(0, playerInputCursorPosition + i);
                 WriteLine("                        ");
@@ -128,7 +146,7 @@ namespace BattleshipLibrary
             {
                 int resultCursorPosition = WindowWidth / 2 - 10;
                 SetCursorPosition(resultCursorPosition, 0);
-                Write("                                        ");
+                Write(SPACES);
                 SetCursorPosition(resultCursorPosition, 0);
             }
 

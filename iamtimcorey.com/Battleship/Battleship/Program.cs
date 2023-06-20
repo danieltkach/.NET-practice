@@ -5,7 +5,6 @@ string[] allowedLetters = { "A", "B", "C", "D", "E", "F", "G" };
 int gridSize = allowedLetters.Length;
 const int shipsPerPlayer = 5;
 ConsoleUI consoleUI = new(allowedLetters, gridSize, shipsPerPlayer);
-GridUI gridUI = new(allowedLetters, gridSize);
 
 // Player 1 registration
 PlayerInfo player1 = new();
@@ -17,12 +16,12 @@ consoleUI.PlayerRegistration(player2, "Name for player 2: ");
 
 // Game loop
 Clear();
-gridUI.PrintBlankGrid();
+consoleUI.grid.PrintBlankGrid();
 PlayerInfo winner;
 PlayerInfo looser;
 do
 {
-    gridUI.UpdateGrid(player1);
+    consoleUI.grid.UpdateGrid(player1);
     consoleUI.PlayerTurn(player1, player2, $"{player1.Username}'s turn");
     if (player1.Points == shipsPerPlayer)
     {
@@ -31,7 +30,7 @@ do
         break;
     }
 
-    gridUI.UpdateGrid(player2);
+    consoleUI.grid.UpdateGrid(player2);
     consoleUI.PlayerTurn(player2, player1, $"{player2.Username}'s turn");
     if (player2.Points == shipsPerPlayer)
     {
@@ -43,8 +42,8 @@ do
 
 // Game ending
 // Print ships and show winner grid
-gridUI.UpdateGrid(looser);
-gridUI.PrintShips(winner);
+consoleUI.grid.UpdateGrid(looser);
+consoleUI.grid.PrintShips(winner);
 
 // Print signs
 int cursorX = WindowWidth / 2 - 20;

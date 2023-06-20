@@ -53,6 +53,7 @@
             }
             if (type == GridSpotModel.SpotStatus.ship)
             {
+                ForegroundColor = ConsoleColor.Green;
                 spotChars = "<]";
             }
             Write(spotChars);
@@ -60,6 +61,7 @@
 
         public void UpdateGrid(PlayerInfo player)
         {
+            ForegroundColor = ConsoleColor.Gray;
             PrintBlankGrid();
             foreach(var spot in player.ShotsGrid)
             {
