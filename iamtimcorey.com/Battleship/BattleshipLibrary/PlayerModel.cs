@@ -1,6 +1,6 @@
 ﻿namespace BattleshipLibrary
 {
-    public class PlayerInfo
+    public class PlayerModel
     {
         public string Username { get; set; }
        
@@ -18,7 +18,7 @@
 		}
 
         public List<GridSpotModel> ShotsGrid { get; } = new();
-        public bool Shoot(PlayerInfo target, GridSpotModel coordinate)
+        public bool Shoot(PlayerModel target, GridSpotModel coordinate)
         {
             foreach (var spot in target.ShipLocations)
             {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Numerics;
+using System.Reflection;
 
 namespace BattleshipLibrary
 {
@@ -7,21 +8,25 @@ namespace BattleshipLibrary
     {
         private readonly string[] allowedLetters;
         private readonly int gridSize;
-        private readonly int maxShips;
-        int playerInputCursorPosition = 14;
+        private readonly int shipsCount;
         public GridUI grid;
+        
+        // Screen offsets
+        const int playerInputCursorPosition = 13;
+        const int gridVerticalOffset = 2;
         const string SPACES = "                                                    ";
 
         public ConsoleUI(string[] letters, int size, int ships)
         {    
             allowedLetters = letters;
             gridSize = size;
-            maxShips = ships;
-            grid = new(letters, size);
+            shipsCount = ships;
+            grid = new(letters, size, gridVerticalOffset);
         }
 
         public void WelcomeMessage()
         {
+            SetCursorPosition(WindowWidth / 2 - 15, 0);
             ForegroundColor = ConsoleColor.Cyan;
             Write("*** Welcome to ");
             ForegroundColor = ConsoleColor.Red;
@@ -30,29 +35,33 @@ namespace BattleshipLibrary
 
         public void PrintRules()
         {
+            const string listIcon = "[>";
             ForegroundColor = ConsoleColor.DarkCyan;
             WriteLine("\nRules:");
-            Write("Allowed letters are: ");
+            Write($"{listIcon} Allowed letters are: ");
             WriteLine(string.Join(" ", allowedLetters));
-            WriteLine($"Allowed numbers are from 1 to {gridSize}");
+            WriteLine($"{listIcon} Allowed numbers are from 1 to {gridSize}");
+            WriteLine($"{listIcon} There are {shipsCount} ships per player.");
+            WriteLine($"{listIcon} Sink all opponent's ships to win.");
             ResetColor();
         }
 
-        private void ReadPlayerInfo(PlayerInfo player, string prompt)
+        private void ReadPlayerInfo(PlayerModel player, string prompt)
         {
             ForegroundColor = ConsoleColor.Cyan;
+            SetCursorPosition(0, playerInputCursorPosition - 2);
             Write($"\n{prompt}");
             ForegroundColor = ConsoleColor.Red;
             player.Username = ReadLine();
         }
 
-        public void PlayerRegistration(PlayerInfo player, string message)
+        public void PlayerRegistration(PlayerModel player, string message)
         {
             Clear();
             WelcomeMessage();
             PrintRules();
-            ReadPlayerInfo(player, message);
             grid.PrintBlankGrid();
+            ReadPlayerInfo(player, message);
             ReadShipLocations(player);
         }
 
@@ -102,9 +111,9 @@ namespace BattleshipLibrary
             return shipLocation;
         }
 
-        public void ReadShipLocations(PlayerInfo player)
+        public void ReadShipLocations(PlayerModel player)
         {
-            for (int i = 1; i <= maxShips; i++)
+            for (int i = 1; i <= shipsCount; i++)
             {
                 bool alreadyExists;
                 GridSpotModel newShipLocation;
@@ -131,7 +140,7 @@ namespace BattleshipLibrary
             }
         }
 
-        public void PlayerTurn(PlayerInfo shooter, PlayerInfo target, string message)
+        public void PlayerTurn(PlayerModel shooter, PlayerModel target, string message)
         {
             for (int i = 0; i < 6; i++)
             {
@@ -171,6 +180,27 @@ namespace BattleshipLibrary
                 Beep(1000, 100);
                 ResetColor();
             }
+        }
+
+        public void PrintEndGameSigns(PlayerModel player)
+        {
+            int cursorX = WindowWidth / 2 - 20;
+            SetCursorPosition(cursorX, 0);
+            ForegroundColor = ConsoleColor.Red;
+            Write("* * * * * * * * * * * * * * * * * * * * * ");
+            ForegroundColor = ConsoleColor.Yellow;
+            SetCursorPosition(cursorX, 1);
+            Write($"               {player.Username} Wins!");
+            SetCursorPosition(cursorX, 2);
+            ForegroundColor = ConsoleColor.Red;
+            WriteLine("* * * * * * * * * * * * * * * * * * * * * ");
+            Beep();
+            ReadKey();
+            ResetColor();
+            SetCursorPosition(25, 20);
+            ForegroundColor = ConsoleColor.Yellow;
+            WriteLine("...thank you for playing!");
+            ReadKey();
         }
     }
 }

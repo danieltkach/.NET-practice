@@ -4,19 +4,21 @@
     {
         private readonly string[] allowedLetters;
         private readonly int gridSize;
-        private readonly int offsetY = 3;
+        private readonly int verticalOffset;
 
-        public GridUI(string[] letters, int size)
+        public GridUI(string[] letters, int size, int offset)
         {
             allowedLetters = letters;
             gridSize = size;
+            verticalOffset = offset;
         }
 
+        // Returns the cursor position for a given grid position (e.g. "A3" -> 12,8)
         private (int x, int y) Coordinates(string letter, int number)
         {
-            int offsetX = WindowWidth / 2 - allowedLetters.Length * 4 / 2;
+            int horizontalOffset = WindowWidth / 2 - allowedLetters.Length * 4 / 2;
             int index = Array.IndexOf(allowedLetters, letter.ToUpper());
-            return (index * 4 + offsetX, offsetY + number);
+            return (index * 4 + horizontalOffset, verticalOffset + number);
         }
 
         public void PrintBlankGrid()
@@ -59,7 +61,8 @@
             Write(spotChars);
         }
 
-        public void UpdateGrid(PlayerInfo player)
+        // Draws the grid adding misses and hits
+        public void UpdateGrid(PlayerModel player)
         {
             ForegroundColor = ConsoleColor.Gray;
             PrintBlankGrid();
@@ -73,7 +76,9 @@
             }
         }
 
-        public void PrintShips(PlayerInfo player)
+        // Used to draw the ships as the player adds them
+        // and also at the end to show where the ships were.
+        public void PrintShips(PlayerModel player)
         {
             ForegroundColor = ConsoleColor.DarkGreen;
             foreach (var spot in player.ShipLocations)
