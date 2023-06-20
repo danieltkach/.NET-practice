@@ -140,7 +140,7 @@ namespace BattleshipLibrary
             }
         }
 
-        public void PlayerTurn(PlayerModel shooter, PlayerModel target, string message)
+        public bool PlayerTurn(PlayerModel shooter, PlayerModel target, string message)
         {
             for (int i = 0; i < 6; i++)
             {
@@ -166,9 +166,10 @@ namespace BattleshipLibrary
                 ErasePreviousMessage();
                 ForegroundColor = ConsoleColor.Red;
                 Write($"{ shooter.Username} HITS!");
-                Beep(200, 2000);
+                Beep(200, 1500);
                 shooter.AddPoint();
                 ResetColor();
+                return true;
             }
             else
             {
@@ -179,6 +180,7 @@ namespace BattleshipLibrary
                 Beep(1000, 100);
                 Beep(1000, 100);
                 ResetColor();
+                return false;
             }
         }
 

@@ -2,8 +2,9 @@
 
 // Configuration
 string[] allowedLetters = { "A", "B", "C", "D", "E", "F", "G" };
+
 int gridSize = allowedLetters.Length;
-const int shipsPerPlayer = 5;
+const int shipsPerPlayer = 3;
 ConsoleUI consoleUI = new(allowedLetters, gridSize, shipsPerPlayer);
 
 // Player 1 registration
@@ -16,30 +17,46 @@ consoleUI.PlayerRegistration(player2, "Name for player 2: ");
 
 // Game loop
 Clear();
-PlayerModel winner;
-PlayerModel looser;
-do
+PlayerModel winner = null;
+PlayerModel looser ;
+
+while (winner == null)
 {
     consoleUI.grid.UpdateGrid(player1);
-    consoleUI.PlayerTurn(player1, player2, $"{player1.Username}'s turn");
-    if (player1.Points == shipsPerPlayer)
+    bool scored;
+    do
     {
-        winner = player1;
-        looser = player2;
-        break;
-    }
+        scored = consoleUI.PlayerTurn(player1, player2, $"{player1.Username}'s turn");
+        consoleUI.grid.UpdateGrid(player1);
+        if (player1.Points == shipsPerPlayer)
+        {
+            winner = player1;
+            looser = player2;
+            EndGame();
+            break;
+        }
+    } while(scored);
+
+    if (winner != null) break;
 
     consoleUI.grid.UpdateGrid(player2);
-    consoleUI.PlayerTurn(player2, player1, $"{player2.Username}'s turn");
-    if (player2.Points == shipsPerPlayer)
+    do
     {
-        winner = player2;
-        looser = player1;
-        break;
-    }
-} while (true);
+        scored = consoleUI.PlayerTurn(player2, player1, $"{player2.Username}'s turn");
+        consoleUI.grid.UpdateGrid(player2);
+        if (player2.Points == shipsPerPlayer)
+        {
+            winner = player2;
+            looser = player1;
+            EndGame();
+            break;
+        }
+    } while (scored);
+}
 
-// Game ending
-consoleUI.grid.UpdateGrid(looser);
-consoleUI.grid.PrintShips(winner);
-consoleUI.PrintEndGameSigns(winner);
+void EndGame()
+{
+    consoleUI.grid.UpdateGrid(looser);
+    consoleUI.grid.PrintShips(winner);
+    consoleUI.PrintEndGameSigns(winner);
+}
