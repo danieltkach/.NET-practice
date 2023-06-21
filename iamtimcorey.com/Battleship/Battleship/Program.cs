@@ -2,9 +2,8 @@
 
 // Configuration
 string[] allowedLetters = { "A", "B", "C", "D", "E", "F", "G" };
-
 int gridSize = allowedLetters.Length;
-const int shipsPerPlayer = 3;
+const int shipsPerPlayer = 5;
 ConsoleUI consoleUI = new(allowedLetters, gridSize, shipsPerPlayer);
 
 // Player 1 registration
@@ -15,10 +14,20 @@ consoleUI.PlayerRegistration(player1, "Name for player 1: ");
 PlayerModel player2 = new();
 consoleUI.PlayerRegistration(player2, "Name for player 2: ");
 
+
 // Game loop
 Clear();
+SetCursorPosition(0, 0);
+for (int i = 0; i < WindowWidth; i++)
+{
+    Write(" ");
+}
+string message = $"{player1.Username} VS {player2.Username}";
+SetCursorPosition(WindowWidth/2 - message.Length/2, 0);
+Write(message);
+
 PlayerModel winner = null;
-PlayerModel looser ;
+PlayerModel looser;
 
 while (winner == null)
 {
@@ -36,7 +45,6 @@ while (winner == null)
             break;
         }
     } while(scored);
-
     if (winner != null) break;
 
     consoleUI.grid.UpdateGrid(player2);

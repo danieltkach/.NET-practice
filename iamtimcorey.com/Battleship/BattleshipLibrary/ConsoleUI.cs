@@ -153,10 +153,10 @@ namespace BattleshipLibrary
 
             void ErasePreviousMessage()
             {
-                int resultCursorPosition = WindowWidth / 2 - 10;
-                SetCursorPosition(resultCursorPosition, 0);
+                int resultCursorPosition = WindowWidth - 30;
+                SetCursorPosition(resultCursorPosition, 6);
                 Write(SPACES);
-                SetCursorPosition(resultCursorPosition, 0);
+                SetCursorPosition(resultCursorPosition, 6);
             }
 
             GridSpotModel shoot = ReadCoordinate();
@@ -186,7 +186,7 @@ namespace BattleshipLibrary
 
         public void PrintEndGameSigns(PlayerModel player)
         {
-            int cursorX = WindowWidth / 2 - 20;
+            int cursorX = WindowWidth / 2 - 21;
             SetCursorPosition(cursorX, 0);
             ForegroundColor = ConsoleColor.Red;
             Write("* * * * * * * * * * * * * * * * * * * * * ");

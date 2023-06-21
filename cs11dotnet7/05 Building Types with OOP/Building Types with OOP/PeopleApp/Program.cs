@@ -108,3 +108,41 @@ WriteLine($"Sam's first child is {sam[0].Name}");
 WriteLine($"Sam's second child is {sam[1].Name}");
 // get using name indexer
 WriteLine($"Sam's child named Ella is {sam["Ella"].Age} years old.");
+
+// using overloaded methods
+Person lamech = new() { Name = "Lamech" };
+Person adah = new() { Name = "Adah" };
+Person zillah = new() { Name = "Zillah" };
+lamech.Marry(adah);
+Person.Marry(zillah, lamech);
+
+void IsMarriedTo(Person person)
+{
+    WriteLine($"{person.Name} is married to {person.Spouse?.Name ?? "nobody"}");
+}
+IsMarriedTo(lamech);
+IsMarriedTo(adah);
+IsMarriedTo(zillah);
+
+// call instance method
+Person baby1 = lamech.ProcreateWith(adah);
+baby1.Name = "Jabal";
+WriteLine($"{baby1.Name} was born on {baby1.DateOfBirth}");
+// call static method
+Person baby2 = Person.Procreate(zillah, lamech);
+baby2.Name = "Tubalcain";
+
+void HowManyChildren(Person person)
+{
+    int count = person.Children.Count;
+    WriteLine($"{person.Name} has {count} {(count > 1 ? "children" : "child")}");
+}
+HowManyChildren(lamech);
+HowManyChildren(adah);
+HowManyChildren(zillah);
+
+for(int i = 0; i < lamech.Children.Count; i++)
+{
+    WriteLine("{0}'s child #{1} is named \"{2}\".",
+        arg0: lamech.Name, arg1: i, arg2: lamech[i].Name);
+}

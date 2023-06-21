@@ -77,4 +77,42 @@ public partial class Person
             }
         }
     }
+
+    private bool married = false;
+    public bool Married => married;
+    private Person spouse = null;
+    public Person Spouse => spouse;
+
+    public static void Marry(Person p1,  Person p2)
+    {
+        p1.Marry(p2);
+    }
+    public void Marry(Person partner)
+    {
+        if (married) return;
+        spouse = partner;
+        married = true;
+        if (!partner.Married) partner.Marry(this);
+    }
+
+    public static Person Procreate(Person p1, Person p2)
+    {
+        if (p1.Spouse != p2)
+        {
+            throw new ArgumentException("You must be married to procreate.");
+        }
+        Person baby = new()
+        {
+            Name = $"Baby of {p1.Name} and {p2.Name}",
+            DateOfBirth = DateTime.Now            
+        };
+        p1.Children.Add(baby);
+        p2.Children.Add(baby);
+        return baby;
+    }
+
+    public Person ProcreateWith(Person partner)
+    {
+        return Procreate(this, partner);
+    }
 }
