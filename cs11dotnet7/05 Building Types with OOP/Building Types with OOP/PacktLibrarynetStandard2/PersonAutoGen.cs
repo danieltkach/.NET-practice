@@ -115,4 +115,16 @@ public partial class Person
     {
         return Procreate(this, partner);
     }
+
+    // operators
+    public static bool operator +(Person p1, Person p2)
+    {
+        Marry(p1, p2);
+        return p1.Married && p2.Married;
+    }
+
+    public static Person operator *(Person p1, Person p2)
+    {
+        return Person.Procreate(p1, p2);
+    }
 }

@@ -146,3 +146,16 @@ for(int i = 0; i < lamech.Children.Count; i++)
     WriteLine("{0}'s child #{1} is named \"{2}\".",
         arg0: lamech.Name, arg1: i, arg2: lamech[i].Name);
 }
+
+Person angelina = new()
+{
+    Name = "Angelina Jolie"
+};
+Person brad = new()
+{
+    Name = "Brad Pitt"
+};
+WriteLine($"{angelina.Name} and {brad.Name} are getting married: {angelina + brad}");
+Person babyAngelinaAndBrad = angelina * brad;
+babyAngelinaAndBrad.Name = "not sure...";
+WriteLine($"Baby's name: {babyAngelinaAndBrad.Name}");
