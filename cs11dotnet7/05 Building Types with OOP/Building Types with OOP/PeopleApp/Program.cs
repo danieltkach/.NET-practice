@@ -203,3 +203,27 @@ foreach (Passenger passenger in passengers)
     };
     WriteLine($"Flight costs {flightCost:C} for {passenger}");
 }
+
+ImmutablePerson jeff = new()
+{
+    FirstName = "Jeff",
+    LastName = "Winger"
+};
+//jeff.FirstName = "Geoff";
+
+ImmutableVehicle car = new()
+{
+    Brand = "Mazda MX-5 RF",
+    Color = "Soul Red Crystal Metallic",
+    Wheels = 4
+};
+ImmutableVehicle repaintedCar = car
+    with
+{ Color = "Polymetal Grey Metallic" };
+WriteLine($"Original car color was {car.Color}.");
+WriteLine($"New car color is {repaintedCar.Color}");
+WriteLine($"Brand: {repaintedCar.Brand}. Wheels: {repaintedCar.Wheels}");
+
+ImmutableAnimal oscar = new("Oscar", "Labrador");
+var (who, what) = oscar;
+WriteLine($"{who} is a {what}");
