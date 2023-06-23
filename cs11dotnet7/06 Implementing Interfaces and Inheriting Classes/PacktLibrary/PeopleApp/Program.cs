@@ -20,3 +20,22 @@ prahlad.Poke();
 prahlad.Poke();
 prahlad.Poke();
 prahlad.Poke();
+
+Person?[] people =
+{
+    null,
+    new() { Name = "Simon" },
+    new() { Name = "Jenny" },
+    new() { Name = "Adam" },
+    new() { Name = null },
+    new() { Name = "Richard" }
+};
+OutputPeopleNames(people, "Initial list of people:");
+Array.Sort(people);
+OutputPeopleNames(people, "After sorting using Person's IComparable implementation:");
+
+//DvdPlayer myPlayer = new();
+//myPlayer.Stop(); // this won't work
+
+IPlayable myPlayer = new DvdPlayer();
+myPlayer.Stop(); // This will call the default Stop() from IPlayable interface and print "Default implementation of Stop()".
