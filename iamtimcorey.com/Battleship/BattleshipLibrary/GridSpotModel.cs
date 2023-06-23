@@ -7,7 +7,7 @@
         public string SpotLetter { get; set; }
 		public int SpotNumber { get; set; }
 		
-        public string GetCoordinate()
+        public string GetCoordinates()
         {
             return SpotLetter.ToString() + SpotNumber.ToString();
         }
