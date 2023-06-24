@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stopwatch", "Stopwatch\Stop
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuestBook", "GuestBook\GuestBook.csproj", "{FE1F257A-302B-4147-909B-7A7ACB9646F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP-Part1", "OOP-Part1\OOP-Part1.csproj", "{34A4CD79-FB9E-4759-9D54-94E77095CE46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOP-Part1", "OOP-Part1\OOP-Part1.csproj", "{34A4CD79-FB9E-4759-9D54-94E77095CE46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InheritanceMiniProject", "InheritanceMiniProjectApp\InheritanceMiniProject\InheritanceMiniProject.csproj", "{F30AB7DC-6BCA-4A3A-81A1-350FC5A74D54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{34A4CD79-FB9E-4759-9D54-94E77095CE46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34A4CD79-FB9E-4759-9D54-94E77095CE46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34A4CD79-FB9E-4759-9D54-94E77095CE46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F30AB7DC-6BCA-4A3A-81A1-350FC5A74D54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F30AB7DC-6BCA-4A3A-81A1-350FC5A74D54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F30AB7DC-6BCA-4A3A-81A1-350FC5A74D54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F30AB7DC-6BCA-4A3A-81A1-350FC5A74D54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
