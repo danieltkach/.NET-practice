@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOP-Part1", "OOP-Part1\OOP-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InheritanceMiniProject", "InheritanceMiniProjectApp\InheritanceMiniProject\InheritanceMiniProject.csproj", "{F30AB7DC-6BCA-4A3A-81A1-350FC5A74D54}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardGame", "CardGameUI\CardGame.csproj", "{55888181-CC4D-4B36-82E8-11BCE50D7B3D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{F30AB7DC-6BCA-4A3A-81A1-350FC5A74D54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F30AB7DC-6BCA-4A3A-81A1-350FC5A74D54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F30AB7DC-6BCA-4A3A-81A1-350FC5A74D54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55888181-CC4D-4B36-82E8-11BCE50D7B3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55888181-CC4D-4B36-82E8-11BCE50D7B3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55888181-CC4D-4B36-82E8-11BCE50D7B3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55888181-CC4D-4B36-82E8-11BCE50D7B3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
