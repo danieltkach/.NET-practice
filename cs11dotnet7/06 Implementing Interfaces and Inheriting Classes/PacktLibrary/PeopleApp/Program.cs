@@ -44,3 +44,23 @@ DisplacementVector dv1 = new(3, 5);
 DisplacementVector dv2 = new(-2, 7);
 DisplacementVector dv3 = dv1 + dv2;
 WriteLine($"({dv1.X}, {dv1.Y}) + ({dv2.X}, {dv2.Y}) = ({dv3.X}, {dv3.Y})");
+
+// using static methods to reuse functionality
+string email1 = "pamela@test.com";
+string email2 = "ian&test.com";
+WriteLine("{0} is a valid e-mail address: {1}",
+    arg0: email1,
+    arg1: StringExtensions.IsValidEmail(email1));
+WriteLine("{0} is a valid e-mail address: {1}",
+    arg0: email2,
+    arg1: StringExtensions.IsValidEmail(email2));
+
+// using extension methods to reuse functionality
+string email3 = "pamela@test.com";
+string email4 = "ian&test.com";
+WriteLine("{0} is a valid e-mail address: {1}",
+    arg0: email1,
+    arg1: email3.IsValidEmail());
+WriteLine("{0} is a valid e-mail address: {1}",
+    arg0: email2,
+    arg1: email4.IsValidEmail());
