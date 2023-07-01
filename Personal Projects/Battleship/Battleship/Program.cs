@@ -1,4 +1,9 @@
-﻿using BattleshipLibrary;
+﻿// <copyright file="Program.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+using System.Diagnostics;
+using BattleshipLibrary;
 
 // Configuration
 string[] allowedLetters = { "A", "B", "C", "D", "E", "F", "G" };
@@ -14,7 +19,6 @@ consoleUI.PlayerRegistration(player1, "Name for player 1: ");
 PlayerModel player2 = new();
 consoleUI.PlayerRegistration(player2, "Name for player 2: ");
 
-
 // Game loop
 Clear();
 SetCursorPosition(0, 0);
@@ -22,8 +26,9 @@ for (int i = 0; i < WindowWidth; i++)
 {
     Write(" ");
 }
+
 string message = $"{player1.Username} VS {player2.Username}";
-SetCursorPosition(WindowWidth/2 - message.Length/2, 0);
+SetCursorPosition((WindowWidth / 2) - (message.Length / 2), 0);
 Write(message);
 
 PlayerModel winner = null;
@@ -44,8 +49,11 @@ while (winner == null)
             EndGame();
             break;
         }
-    } while(scored);
-    if (winner != null) break;
+    } while (scored);
+    if (winner != null)
+    {
+        break;
+    }
 
     consoleUI.grid.UpdateGrid(player2);
     do

@@ -1,17 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/***************************/
+// Arrange - Act - Assert //
+/***************************/
 
 namespace DemoLibrary.Tests
 {
-    public class DisplayMessagesTests
+    public class UnitTest1
     {
         [Fact]
         public void GreetingShouldReturnGoodMorningMessage()
         {
+            // Arrange
+            DisplayMessages messages = new DisplayMessages();
+            string expected = "Good morning Dan";
 
+            // Act
+            string actual = messages.Greeting("Dan", 6);
+
+            // Assert
+            Assert.Equal(expected, actual);
         }
     }
 }
