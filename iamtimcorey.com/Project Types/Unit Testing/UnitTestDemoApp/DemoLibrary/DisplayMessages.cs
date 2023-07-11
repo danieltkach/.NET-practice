@@ -10,7 +10,11 @@ namespace DemoLibrary
         {
             string output = "";
 
-            if (hourOfTheDay < 12)
+            if (hourOfTheDay < 5)
+            {
+                output = $"Go to bed {firstName}";
+            }
+            else if (hourOfTheDay < 12)
             {
                 output = $"Good morning {firstName}";
             } 
