@@ -49,7 +49,7 @@ namespace WPFMiniProject
                 IsActive = (activeCheckbox.IsChecked ?? false),
                 Addresses = addresses.ToList()
             };
-        |}
+        }
 
     }
 }
