@@ -1,0 +1,14 @@
+﻿@page
+@model RazorDemo.Pages.AddressModel
+@{
+}
+
+<h1>Address</h1>
+<form method="post">
+    <input asp-for="Street" placeholder="Street" class="form-control"/>
+    <input asp-for="City" placeholder="City" />
+    <input asp-for="Region" placeholder="Region" />
+    <input asp-for="PostalCode" placeholder="Postal Code" />
+    <input asp-for="Country" placeholder="Country" />
+    <button type="submit">Send Form</button>
+</form>
